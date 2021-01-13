@@ -1,5 +1,7 @@
 # DHCP Server project
 
+![alt text](https://github.com/qnmx/DHCP_server/blob/master/Topology_design/DHCP_project.png "Topology")
+
 The technology used in the project:
 - GNS3
 - Linux/Ubuntu Server
