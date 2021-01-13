@@ -9,7 +9,7 @@ The technology used in the project:
 - Ubuntu docker images
 - VPCS as client stations
 
-Project description:
+**Project description:**
 
 In this project, I am setting up a DHCP server to be used in the internal network. The DHCP server is deployed on a Ubuntu Server. As a DHCP program, I have chosen ISC DHCP, https://www.isc.org/dhcp/
 
@@ -87,7 +87,7 @@ To disable option insertion run the command:
 SW1-main(config)#no ip dhcp snooping information option
 
 ------------------------------------
-Verifications
+**Verifications**
 
 - Assigning an IP address to a host via DHCP
 
