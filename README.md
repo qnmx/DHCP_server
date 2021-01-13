@@ -75,6 +75,7 @@ Interface level configuration
 SW1-main(config-if)#ip dhcp snooping trust
 
 Repeat the command on each interface where DHCP server messages are expected.
+
 -----------------------------------
 
 In my topology, I have a Router on a stick configuration to enable Inter-VLAN communication. By default, when DHCP snooping is configured, insertion of option 82 is enabled.  
