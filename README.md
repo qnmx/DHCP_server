@@ -23,7 +23,7 @@ At each location, the Cisco switch is configured with DHCP snooping.
 
 1. To download the DHCP server software, run the commands:
 
-sudo apt update
+sudo apt update <br />
 sudo apt install isc-dhcp-server
 
 2. Once this is done, the next step is to configure the DHCP server.
@@ -39,19 +39,20 @@ The interface details could be located by running "ip a" command.
 
 3. Edit /etc/dhcp/dhcpd.conf file
 
-Set required network information that will be shared to hosts, e.i. IP ranges, Default Gateway, Name Servers, etc.
+Set required network information that will be shared to hosts, i.e. IP ranges, Default Gateway, Name Servers, etc.
 
 4. Start and enable dhcp service:
 
-sudo systemctl start isc-dhcp-server
+sudo systemctl start isc-dhcp-server <br />
 sudo systemctl enable isc-dhcp-server
 
 5. Add a rule to a firewall:
 
-sudo ufw allow 67/udp
+sudo ufw allow 67/udp <br />
 sudo ufw reload
 
-Status of the firewall could be verified by running: sudo ufw status
+Status of the firewall could be verified by running:
+sudo ufw status
 
 -----------------------------------
 
@@ -68,7 +69,7 @@ SW1-main(config)#ip dhcp snooping
 
 SW1-main(config)#ip dhcp snooping vlan [VLAN number]
 
-By entering the above commands, we have enabled DHCP snooping feature on a particular VLAN. All ports on the switch are assigned a role of untrusted. Ports will only now pass the DHCP's client request messages, which are Discover and Request. Any DHCP server responses will be blocked. DHCP server messages are Offer and Acknowledge
+By entering the above commands, we have enabled DHCP snooping feature on a particular VLAN and all ports are now set as untrusted. Ports will only now pass the DHCP's client request messages, which are Discover and Request. Any DHCP server responses will be blocked. DHCP server messages are Offer and Acknowledge.
 
 To allow DHCP server messages to pass through, interface connected to the DHCP server need to be trusted. To do this apply a command:
 
@@ -93,16 +94,16 @@ SW1-main(config)#no ip dhcp snooping information option
 
 - Assigning an IP address to a host via DHCP
 
-With DHCP snooping on
-PC9> ip dhcp -r
+With DHCP snooping on <br />
+PC9> ip dhcp -r <br />
 DORA IP 10.0.100.4/24 GW 10.0.100.254
 
 To test DHCP snooping, I have created a secondary DHCP server and I attached it to one of the subnets. Then in GNS3, I applied a filter to drop packets that are flowing to the main DHCP server. This is to create a congestion on that interface so the requests from hosts can not be processed.
 
 In the scenario, where there are two DHCP servers on the same subnet, the host will take settings from a server that responded first. Thus I am creating network congestion on the link to main DHCP server so the Rogue DHCP server can offer the network details. 
 
-Without DHCP snooping on
-PC9> ip dhcp -r
+Without DHCP snooping on <br />
+PC9> ip dhcp -r <br />
 DDORA IP 10.0.100.150/24 GW 10.0.100.200
 
 ------------------------------------
